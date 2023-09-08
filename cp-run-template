@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+argc=$#
+
+if [[ $argc != 1 ]]; then
+    echo "Provide one cpp/py file to run"
+else
+    file="$1"
+    arrf=(${file//./ })
+    ext="${arrf[-1]}"  # Get the last element of the array for file extension
+    if [[ $ext == "cpp" ]]; then
+        set -x
+        g++ "$file" -o "${arrf[0]}.out"
+        "./${arrf[0]}.out"
+    elif [[ $ext == "py" ]]; then
+        python3 "$file"
+    else
+        echo "Unsupported file type: $ext"
+    fi
+fi
