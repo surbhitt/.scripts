@@ -1,0 +1,16 @@
+#!/usr/bin/bash python3
+
+import sys
+from os import path
+
+import math
+import deque 
+import collections
+
+if(path.exists('input.txt')):
+    sys.stdin = open('input.txt','r')
+
+for _ in range(int(input())):
+    # n = int(input())
+    # a, b = map(int, input().split())
+    # l = [x for x in input().split()]
