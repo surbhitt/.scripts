@@ -20,8 +20,9 @@ AWK=/usr/bin/awk
 SED=/usr/bin/sed
 
 # go to codeforces dir 
-cp_dir="~/Desktop/codeforces"
-cur_dir=$(pwd)
+# the ~ is not recognised hence provide /home/subzero/
+cp_dir="/home/subzero/Desktop/codeforces"
+cur_dir="/home/subzero/.scripts"
 cd $cp_dir 
 
 # cnt the number of args passed
@@ -40,7 +41,10 @@ mkdir $dir_name
 echo "[+] Created $dir_name"
 cd $dir_name
 touch "input.txt"
-~/.scripts/cp-build.sh
+echo "[+] Created input.txt"
+cp "$cur_dir/cp-run-template" "$cp_dir/$dir_name/run.sh"
+chmod +x "$cp_dir/$dir_name/run.sh"
+echo "[+] Created run.sh"
 
 ext="cpp" #or py
 progs=('A' 'B' 'C' 'D')
