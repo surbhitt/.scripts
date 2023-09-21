@@ -4,7 +4,7 @@ import sys
 from os import path
 
 import math
-import deque 
+from collections import deque 
 import collections
 
 if(path.exists('input.txt')):

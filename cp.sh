@@ -46,7 +46,7 @@ cp "$cur_dir/cp-run-template" "$cp_dir/$dir_name/run.sh"
 chmod +x "$cp_dir/$dir_name/run.sh"
 echo "[+] Created run.sh"
 
-ext="cpp" #or py
+ext="py" #or py
 progs=('A' 'B' 'C' 'D')
 for prog in ${progs[@]}; do
     file_name="$prog.$ext"

@@ -1,11 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef signed long long ll;
+
+#define _P(...) (void)printf(__VA_ARGS__)
+#define FOR(x,to) for(x=0;x<(to);x++)
+#define FORR(x,arr) for(auto& x:arr)
+#define ALL(a) (a.begin()),(a.end())
+#define ZERO(a) memset(a,0,sizeof(a))
+template<class T> bool chmax(T &a, const T &b) { if(a<b){a=b;return 1;}return 0;}
+template<class T> bool chmin(T &a, const T &b) { if(a>b){a=b;return 1;}return 0;}
 
 int main() {
     
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
-    # freopen("output.txt", "w", stdout);
+    // freopen("output.txt", "w", stdout);
     #endif // ONLINE_JUDGE
 
     int n;
