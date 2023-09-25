@@ -30,7 +30,7 @@ format () {
         new_song_title=$(echo "$song" | awk -F " - " '{ print $2 }' | tr -d " ")
     fi
     new_song_title=$(echo "$new_song_title" | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' )
-	mv "$song" "song_$newsong"
+	mv "$dir/$song" "$dir/song_$newsong"
     echo "song_$new_song_title"
     # echo "song_$new_song_title" >> log.txt
 }
