@@ -1,4 +1,6 @@
 
-feh image manipulation and viewing 
-id3 for mp3 tag editing 
-eyed3 for mp3 tag editing extended capabilities
+- feh: image manipulation and viewing 
+- id3: for tag editing 
+- eyed3: for tag editing extended capabilities
+- xdotool: to set class 
+    |- xdotool search --name "mpv" set_window --class "Mpv" 
