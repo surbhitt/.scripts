@@ -4,8 +4,7 @@ import sys
 from os import path
 
 import math
-from collections import deque 
-import collections
+from collections import * 
 
 if(path.exists('input.txt')):
     sys.stdin = open('input.txt','r')

@@ -2,11 +2,39 @@
 using namespace std;
 typedef signed long long ll;
 
+#define ll long long
+#define ull unsigned long long
+#define lll __int128
+// the _P("<t(arg1)>, <t(arg2)>, <t(arg3)>", arg1, arg2, arg3)
 #define _P(...) (void)printf(__VA_ARGS__)
+#define debug(x) cout << #x << " -> " << (x) << endl
 #define FOR(x,to) for(x=0;x<(to);x++)
+#define FORN(x,n,to) for(x=(n);x<(to);x++)
 #define FORR(x,arr) for(auto& x:arr)
 #define ALL(a) (a.begin()),(a.end())
 #define ZERO(a) memset(a,0,sizeof(a))
+#define mp make_pair
+#define pb push_back
+#define pob pop_back
+#define pf push_front
+#define pof pop_front
+//#define le left
+//#define ri right
+#define fi first
+#define se second
+#define vi vector<int>
+#define vvi vector<vi>
+#define vii vector<pii>
+#define pii pair<int,int> 
+#define endl '\n'
+const int MAX = 1e6+5;
+const int MOD = 998244353;
+const ll MOD2 = 2010405347;
+const ll INF = 2e18;
+const int dr[]={1,-1,0,0,1,1,-1,-1};
+const int dc[]={0,0,-1,1,1,-1,1,-1};
+const double pi = acos(-1);
+const double EPS = 1e-9;
 template<class T> bool chmax(T &a, const T &b) { if(a<b){a=b;return 1;}return 0;}
 template<class T> bool chmin(T &a, const T &b) { if(a>b){a=b;return 1;}return 0;}
 
