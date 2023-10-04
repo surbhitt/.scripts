@@ -1,3 +1,8 @@
+// compile and run 
+// should output the endianess of the computer 
+
+
+
 #include <stdio.h>
 
 int main(void) {

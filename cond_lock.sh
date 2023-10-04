@@ -51,7 +51,6 @@ should_lock() {
 
 # main()
 if should_lock; then
-	i3lock -i ~/Pictures/mywallpapers/scaledlockscreendude.png
-	systemctl suspend
+    ./sleep.sh
 fi
 
