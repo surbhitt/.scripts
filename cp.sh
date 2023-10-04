@@ -1,4 +1,6 @@
+
 #!/bin/bash
+
 set -e
 #--------- codeforces setup -----------
 # create a dir with the name provided
@@ -58,4 +60,4 @@ for prog in ${progs[@]}; do
     echo "[+] Created $file_name"
 done
 
-
+#--------- atcoder setup -----------
