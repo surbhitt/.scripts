@@ -1,0 +1,37 @@
+window:
+  padding:
+    x: 10
+    y: 5
+  class:
+    instance: Alacritty
+    general: Alacritty
+  background_opacity: 1.0
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Space Mono
+    style:  Regular
+  size: 8 
+draw_bold_text_with_bright_colors: true
+
+cursor:
+  style: Underline
+  unfocused_hollow: false
+  unfocused_opacity: 1.0
+
+import:
+  - ~/.config/alacritty/monokai_charcoal.yaml
+
+selection:
+  save_to_clipboard: false
+
+shell:
+  program: /usr/bin/bash
+
+key_bindings:
+  - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
+
