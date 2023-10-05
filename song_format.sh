@@ -23,8 +23,8 @@ format () {
     # if [[ "$song" == *'  '* ]]; then
     #     new_song_title=$(echo "$song" | awk -F "  " '{ print$2 }' | tr -d " ") # | sed 's/ //g')
     # else
-    new_song_title=$(echo "$song" | awk -F " - " '{ print $2 }' | tr -d " ")
-    new_song_title=$(echo "$new_song_title" | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' | sed -E 's/  /|/g' )
+    new_song_title=$(echo "$song" | awk -F " - " '{ print $2 }')
+    new_song_title=$(echo "$new_song_title" | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' | sed -E 's/  /|/g' | tr -d " ")
     arg1=$dir$song 
 	arg2=$dir"song_"$new_song_title
     mv "$arg1" "$arg2"   
@@ -34,8 +34,10 @@ format () {
 dir=$1
 artist=$(basename "$dir")
 printf "\nARTIST ===> $artist\n"
+cd $dir
 
 for song in *.mp3; do
+    echo "$song"
     if [[ $(is_formatted "$song")  != 0 ]]; then
         printf "\n[!] Doesn't need formatting\n"
         echo "$song"
@@ -44,9 +46,10 @@ for song in *.mp3; do
 
     printf "\n~~~~formatting song~~~~\n"
     # editing meta before renaming
-    ./song_format_meta.sh "$song" "$artist"
+    # ./song_format_meta.sh "$song" "$artist"
     file_type=$(echo $(file -b "$song") | awk -F " " '{print $1}')
     if [[ $file_type != "Audio" ]]; then
+        echo "Not Audio"
         continue
     fi
 
