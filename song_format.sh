@@ -20,9 +20,7 @@ is_formatted () {
 format () {
     local song=$1 
     echo "$song"
-    # if [[ "$song" == *'  '* ]]; then
-    #     new_song_title=$(echo "$song" | awk -F "  " '{ print$2 }' | tr -d " ") # | sed 's/ //g')
-    # else
+    # to check for double space: if [[ "$song" == *'  '* ]]; then
     new_song_title=$(echo "$song" | awk -F " - " '{ print $2 }')
     new_song_title=$(echo "$new_song_title" | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' | sed -E 's/  /|/g' | tr -d " ")
     arg1=$dir$song 
