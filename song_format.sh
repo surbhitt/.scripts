@@ -22,7 +22,7 @@ format () {
     echo "$song"
     # to check for double space: if [[ "$song" == *'  '* ]]; then
     new_song_title=$(echo "$song" | awk -F " - " '{ print $2 }')
-    new_song_title=$(echo "$new_song_title" | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' | sed -E 's/  /|/g' | tr -d " ")
+    new_song_title=$(echo "$new_song_title" | sed -E 's/  /|/g' | sed -E 's/[Oo][Ff][Ff][Ii][Cc][Ii][Aa][Ll]//g' | sed -E 's/[Vv][Ii][Dd][Ee][Oo]//g' | sed -E 's/[Aa][Uu][Dd][Ii][Oo]//g' | sed -E 's/[Mm][Uu][Ss][Ii][Cc]//g' | sed -E 's/[Ss][Oo][Uu][Nn][Dd][Tt][Rr][Aa][Cc][Kk]//g' | tr -d " ")
     arg1=$dir$song 
 	arg2=$dir"song_"$new_song_title
     mv "$arg1" "$arg2"   
