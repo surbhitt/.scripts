@@ -156,7 +156,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -193,7 +194,8 @@ bindsym $mod+r mode "resize"
 # acpi 
 # systemd
 # xautolock
-# xdotool
+# xdotool : to simulate key presses
+# xev : to get keycode
 
 # click to focus
 focus_follows_mouse no
@@ -214,6 +216,7 @@ for_window [class="Tk"] floating enable
 for_window [class="Gnome-calendar"] floating enable
 for_window [class="Evolution-alarm-notify"] floating enable
 for_window [class="mpv"] floating enable
+for_window [class="Blueman-manager"] floating enable
 # xpad
 for_window [class="xpad"] floating enable
 for_window [class="xpad"] sticky enable
@@ -255,9 +258,13 @@ bar {
 		}
 }
 
-exec_always --no-startup-id feh --bg-fill /home/subzero/Pictures/mywallpapers/abyss.jpg
+# commands executed on startup
+exec_always --no-startup-id feh --bg-fill /home/subzero/Pictures/mywallpapers/topography.jpg
 exec --no-startup-id xsetroot -cursor_name /path/to/.icons/Numix\ Dark
 exec --no-startup-id picom -b
+# doesnt work => exec --no-startup-id rfkill block bluetooth
+# external monitor setup : puts external monitor to the right
+exec_always --no-startup-id xrandr --output eDP-1 --auto --right-of HDMI-1 
 # autolocking
 
 # exec --no-startup-id xautolock -detectsleep -time 5 -locker "~/.scripts/cond_lock.sh"
@@ -269,7 +276,8 @@ bindsym $mod+Return exec --no-startup-id $term --config-file $alacConfig
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/sleep.sh
 bindsym $mod+b exec --no-startup-id brave-browser --incognito
 bindsym $mod+n exec --no-startup-id nautilus 
-
+bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
+bindsym $mod+Print exec --no-startup-id flameshot gui
 # Scratchpads
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad

@@ -1,5 +1,11 @@
+-- remap alt is the new esc
+local options = { noremap = true }
+vim.keymap.set("i", "<C-[>", "<Esc>", options)
+
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>'", vim.cmd.Ex)
+vim.keymap.set("n", "<A>", "<Esc>")
+vim.keymap.set("v", "<A>", "<Esc>")
+vim.keymap.set("i", "<A>", "<Esc>")
 
 vim.keymap.set("n", "j", "<Left>")
 vim.keymap.set("n", "k", "<Right>")
