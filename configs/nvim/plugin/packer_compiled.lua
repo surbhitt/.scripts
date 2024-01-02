@@ -85,7 +85,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["dired.nvim"] = {
-    config = { "\27LJ\2\n―1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\16show_banner\1\19path_separator\6/\18show_dot_dirs\2\16show_colors\2\16show_hidden\2\nsetup\ndired\frequire\0" },
+    config = { "\27LJ\2\n―1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\19path_separator\6/\16show_banner\1\16show_hidden\2\16show_colors\2\18show_dot_dirs\2\nsetup\ndired\frequire\0" },
     loaded = true,
     path = "/home/subzero/.local/share/nvim/site/pack/packer/start/dired.nvim",
     url = "https://github.com/X3eRo0/dired.nvim"
@@ -156,6 +156,16 @@ _G.packer_plugins = {
     path = "/home/subzero/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/home/subzero/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/home/subzero/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-be-good"] = {
     loaded = true,
     path = "/home/subzero/.local/share/nvim/site/pack/packer/start/vim-be-good",
@@ -174,14 +184,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: dired.nvim
+time([[Config for dired.nvim]], true)
+try_loadstring("\27LJ\2\n―1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\19path_separator\6/\16show_banner\1\16show_hidden\2\16show_colors\2\18show_dot_dirs\2\nsetup\ndired\frequire\0", "config", "dired.nvim")
+time([[Config for dired.nvim]], false)
 -- Config for: moonfly
 time([[Config for moonfly]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme moonfly\bcmd\bvim\0", "config", "moonfly")
 time([[Config for moonfly]], false)
--- Config for: dired.nvim
-time([[Config for dired.nvim]], true)
-try_loadstring("\27LJ\2\n―1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\16show_banner\1\19path_separator\6/\18show_dot_dirs\2\16show_colors\2\16show_hidden\2\nsetup\ndired\frequire\0", "config", "dired.nvim")
-time([[Config for dired.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

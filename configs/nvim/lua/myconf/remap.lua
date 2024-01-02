@@ -1,20 +1,20 @@
 -- remap alt is the new esc
 local options = { noremap = true }
-vim.keymap.set("i", "<C-[>", "<Esc>", options)
+vim.keymap.set("i", "jk", "<Esc>", options)
 
 vim.g.mapleader = ' '
 vim.keymap.set("n", "<A>", "<Esc>")
 vim.keymap.set("v", "<A>", "<Esc>")
 vim.keymap.set("i", "<A>", "<Esc>")
 
-vim.keymap.set("n", "j", "<Left>")
-vim.keymap.set("n", "k", "<Right>")
-vim.keymap.set("n", "l", "<Up>")
-vim.keymap.set("n", ";", "<Down>")
-vim.keymap.set("v", "j", "<Left>")
-vim.keymap.set("v", "k", "<Right>")
-vim.keymap.set("v", "l", "<Up>")
-vim.keymap.set("v", ";", "<Down>")
+-- vim.keymap.set("n", "j", "<Left>")
+-- vim.keymap.set("n", "k", "<Right>")
+-- vim.keymap.set("n", "l", "<Up>")
+-- vim.keymap.set("n", ";", "<Down>")
+-- vim.keymap.set("v", "j", "<Left>")
+-- vim.keymap.set("v", "k", "<Right>")
+-- vim.keymap.set("v", "l", "<Up>")
+-- vim.keymap.set("v", ";", "<Down>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

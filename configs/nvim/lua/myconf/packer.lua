@@ -77,6 +77,8 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use "folke/trouble.nvim"
+    use 'mbbill/undotree'
 end)
 --  nvim-treesitter/treesitterplayground
 
