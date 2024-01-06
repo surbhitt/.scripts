@@ -18,24 +18,24 @@ return require('packer').startup(function(use)
         --[[config = function()
             vim.cmd('colorscheme github_dark_tritanopia')
         end]]--
-    } 
+    }
     use {
         'marko-cerovac/material.nvim',
         --[[config = function()
             vim.cmd('colorscheme material')
         end]]--
-    } 
+    }
     -- for transparency if ever required /plugin/colors.lua
     -- function ColorMyPencils(color)
-        -- 	color = color or "rose-pine"
+        -- 	color = color or 'rose-pine'
         -- 	vim.cmd.colorscheme(color)
-        -- 	vim.api.nvim_set_hl(0, "Normal", { bg="none" })
-        -- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        -- 	vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
+        -- 	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
         -- end
         -- ColorMyPencils()
     use {
-        "bluz71/vim-moonfly-colors",
-        as = "moonfly",
+        'bluz71/vim-moonfly-colors',
+        as = 'moonfly',
         config = function()
             vim.cmd('colorscheme moonfly')
         end
@@ -47,12 +47,7 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
-            {                                      -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
+            {'williamboman/mason.nvim',},          -- Optional
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
             -- Autocompletion
             {'hrsh7th/nvim-cmp'},     -- Required
@@ -63,21 +58,27 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/vim-be-good'
     use 'tpope/vim-commentary'
     use {'mg979/vim-visual-multi'}
-
+    -- use {
+    --     'X3eRo0/dired.nvim',
+    --     requires = 'MunifTanjim/nui.nvim',
+    --     config = function()
+    --         require('dired').setup {
+    --             path_separator = '/',
+    --             show_banner = false,
+    --             show_hidden = true,
+    --             show_dot_dirs = true,
+    --             show_colors = true,
+    --         }
+    --     end
+    -- }
     use {
-        "X3eRo0/dired.nvim",
-        requires = "MunifTanjim/nui.nvim",
-        config = function()
-            require("dired").setup {
-                path_separator = "/",
-                show_banner = false,
-                show_hidden = true,
-                show_dot_dirs = true,
-                show_colors = true,
+        'folke/trouble.nvim',
+        config = function ()
+            require('trouble').setup{
+                icons = false,
             }
         end
     }
-    use "folke/trouble.nvim"
     use 'mbbill/undotree'
 end)
 --  nvim-treesitter/treesitterplayground

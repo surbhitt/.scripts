@@ -3,7 +3,8 @@
 
 # use with CAUTION!!!!
 # script needs to sanitize strings
-# ./script ~/abs_path_to_folder
+# -m flag for metadata 
+# ./script ~/abs_path_to_folder -m
 
 is_formatted () {
     local song="$1"
@@ -33,6 +34,8 @@ dir=$1
 artist=$(basename "$dir")
 printf "\nARTIST ===> $artist\n"
 cd $dir
+# add relative path capabilities
+# relative to ~/Music/
 
 for song in *.mp3; do
     echo "$song"
@@ -43,8 +46,11 @@ for song in *.mp3; do
     fi
 
     printf "\n~~~~formatting song~~~~\n"
-    # editing meta before renaming
-    # ./song_format_meta.sh "$song" "$artist"
+    if [[ $2 == "-m" ]]; then
+        # not working
+        # editing meta before renaming
+        ./song_format_meta.sh "$song" "$artist"
+    fi
     file_type=$(echo $(file -b "$song") | awk -F " " '{print $1}')
     if [[ $file_type != "Audio" ]]; then
         echo "Not Audio"

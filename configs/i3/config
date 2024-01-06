@@ -259,7 +259,7 @@ bar {
 }
 
 # commands executed on startup
-exec_always --no-startup-id feh --bg-fill /home/subzero/Pictures/mywallpapers/topography.jpg
+exec_always --no-startup-id feh --bg-fill /home/subzero/Pictures/mywallpapers/skeleton.jpg 
 exec --no-startup-id xsetroot -cursor_name /path/to/.icons/Numix\ Dark
 exec --no-startup-id picom -b
 # doesnt work => exec --no-startup-id rfkill block bluetooth
