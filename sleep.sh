@@ -4,6 +4,6 @@
 # $ ffmpeg -i mustang_black.jpg -vf scale=1920:1080 mustanb_black_1920x1080.jpg
 
 
-i3lock -i ~/Pictures/mywallpapers/koi_fish_pond_1920x1080.png
+i3lock -i /home/subzero/Pictures/mywallpapers/ign-0008.png 
 systemctl suspend 
 
