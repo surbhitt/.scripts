@@ -19,6 +19,7 @@
     mpv
     cmus
     slack
+    firefox (theme: Spirited Away, Praise the sun)
 
     font:   space mono
             fontawesome 
@@ -26,15 +27,15 @@
 
 - Link configs
     
-    **in** ~/.config
+    in ~/.config
     `$ ln -s link_of link_name`
-    **for** 
+    for 
     alacritty, dunst, i3, nvim, picom, tmux
-    **eg.**
+    eg.
     `nvim -> ../.scripts/configs/nvim`
 
-    **in** ~
-    **for**
+    in ~
+    for
     .zshrc, .bashrc, .clang-format
 
 - [i3](https://i3wm.org/downloads/)
@@ -43,7 +44,13 @@
     reboot and login into i3
     accept the prompt for creating a scratc i3 config(just to see the default location for it)
 
-    => GET THE TOUCHPAD WORKING
+    => for themeing: `$ sudo apt install lxappearance`
+    [https://www.reddit.com/r/i3wm/comments/yg3uwv/how_to_enable_dark_mode_systemwide/?rdt=60597]
+
+    => touchpad: [https://major.io/p/tray-icons-in-i3/]
+                 [https://www.reddit.com/r/i3wm/comments/s59jfp/use_tap_to_click_on_i3_on_archlinux/]
+    symlink `/etc/X11/xorg.conf.d/touchpad-tap.conf`
+
 
 - zsh 
     
@@ -66,6 +73,8 @@
 - Downloads folder
 - .scripts
 - Apps
+- Docs/obsidian/vaults
+
 
 # OS
 
