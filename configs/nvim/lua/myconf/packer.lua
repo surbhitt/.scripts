@@ -1,5 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
--- :so to compile the file 
+-- :so to compile the file
 -- :PackerSync
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -9,30 +9,30 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use {
         'projekt0n/github-nvim-theme',
         --[[config = function()
             vim.cmd('colorscheme github_dark_tritanopia')
-        end]]--
+        end]] --
     }
     use {
         'marko-cerovac/material.nvim',
         --[[config = function()
             vim.cmd('colorscheme material')
-        end]]--
+        end]] --
     }
     -- for transparency if ever required /plugin/colors.lua
     -- function ColorMyPencils(color)
-        -- 	color = color or 'rose-pine'
-        -- 	vim.cmd.colorscheme(color)
-        -- 	vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
-        -- 	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-        -- end
-        -- ColorMyPencils()
+    -- 	color = color or 'rose-pine'
+    -- 	vim.cmd.colorscheme(color)
+    -- 	vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
+    -- 	vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+    -- end
+    -- ColorMyPencils()
     use {
         'bluz71/vim-moonfly-colors',
         as = 'moonfly',
@@ -40,24 +40,24 @@ return require('packer').startup(function(use)
             vim.cmd('colorscheme moonfly')
         end
     }
-    use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            {'neovim/nvim-lspconfig'},             -- Required
-            {'williamboman/mason.nvim',},          -- Optional
-            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim', },          -- Optional
+            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},     -- Required
-            {'hrsh7th/cmp-nvim-lsp'}, -- Required
-            {'L3MON4D3/LuaSnip'},     -- Required
+            { 'hrsh7th/nvim-cmp' },                  -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+            { 'L3MON4D3/LuaSnip' },                  -- Required
         }
     }
     use 'ThePrimeagen/vim-be-good'
     use 'tpope/vim-commentary'
-    use {'mg979/vim-visual-multi'}
+    use 'mg979/vim-visual-multi'
     -- use {
     --     'X3eRo0/dired.nvim',
     --     requires = 'MunifTanjim/nui.nvim',
@@ -73,13 +73,56 @@ return require('packer').startup(function(use)
     -- }
     use {
         'folke/trouble.nvim',
-        config = function ()
-            require('trouble').setup{
+        config = function()
+            require('trouble').setup {
                 icons = false,
             }
         end
     }
     use 'mbbill/undotree'
+    -- use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    --     require("toggleterm").setup()
+    -- end }
+    use {
+        'itchyny/lightline.vim',
+        config = function()
+            -- no need to also show mode in cmd line when we have bar
+            vim.o.showmode = false
+            vim.g.lightline = {
+                -- colorscheme = 'PaperColor',
+                active = {
+                    left = {
+                        { 'mode',     'paste' },
+                        { 'readonly', 'filename', 'modified' }
+                    },
+                    right = {
+                        { 'lineinfo' },
+                        { 'percent' },
+                        { 'filetype' }
+                    },
+                },
+                component_function = {
+                    filename = 'LightlineFilename'
+                },
+            }
+            function LightlineFilenameInLua(opts)
+                if vim.fn.expand('%:t') == '' then
+                    return '[No Name]'
+                else
+                    return vim.fn.getreg('%')
+                end
+            end
+
+            -- https://github.com/itchyny/lightline.vim/issues/657
+            vim.api.nvim_exec(
+                [[
+				function! g:LightlineFilename()
+					return v:lua.LightlineFilenameInLua()
+				endfunction
+				]],
+                true
+            )
+        end
+    }
 end)
 --  nvim-treesitter/treesitterplayground
-

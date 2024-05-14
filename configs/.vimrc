@@ -13,14 +13,14 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " Initialize Vundle
-call vundle#begin()
+" call vundle#begin()
 
 " Place your plugin configurations here
-Plugin 'junegunn/fzf'
-Plugin 'nvim-treesitter/nvim-treesitter'
-Plugin 'mattn/emmet-vim'
+" Plugin 'junegunn/fzf'
+" Plugin 'nvim-treesitter/nvim-treesitter'
+" Plugin 'mattn/emmet-vim'
 " End Vundle
-call vundle#end()
+" call vundle#end()
 filetype plugin indent on
 
 let mapleader = "\<Space>"

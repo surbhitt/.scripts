@@ -1,7 +1,15 @@
 -- remap alt is the new esc
 local options = { noremap = true }
-vim.keymap.set("i", "jk", "<Esc>", options)
-
+vim.keymap.set("i", "<C-c>", "<Esc>", options)
+vim.keymap.set("n", "<C-s>", function()
+    vim.cmd("w")
+end)
+vim.keymap.set("i", "<C-s>", function()
+    vim.cmd("w")
+end)
+vim.keymap.set("v", "<C-s>", function()
+    vim.cmd("w")
+end)
 vim.g.mapleader = ' '
 
 -- vim.keymap.set("n", "j", "<Left>")
@@ -31,17 +39,14 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
--- vim.keymap.set("n", "<leader>f", function()
---     vim.cmd("Dired")
--- end)
 
 -- Trouble mapping
 vim.keymap.set("n", "<leader>t", function()
     require("trouble").toggle()
 end)
-vim.keymap.set("n", "[d", function()
-    require("trouble").next({ skip_groups = true, jump = true })
-end)
-vim.keymap.set("n", "]d", function()
-    require("trouble").previous({ skip_groups = true, jump = true })
-end)
+-- vim.keymap.set("n", "[d", function()
+--     require("trouble").next({ skip_groups = true, jump = true })
+-- end)
+-- vim.keymap.set("n", "]d", function()
+--     require("trouble").previous({ skip_groups = true, jump = true })
+-- end)
