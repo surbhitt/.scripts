@@ -72,7 +72,7 @@
 - Brave pass and bookmarks
 - Downloads folder
 - .scripts
-- Apps
+- Apps (bumblebee-status  nvim.appimage  Obsidian-1.5.8.AppImage  postman  Postman  pycharm  pycharm-community-2023.3.4  qbit.AppImage)
 - Docs/obsidian/vaults
 
 
