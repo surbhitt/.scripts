@@ -12,7 +12,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # fc-list
-font pango:Space Mono 10
+font pango:Dank Mono 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -125,7 +125,8 @@ set $ws10 "0"
 
 assign [class="Brave-browser"] $ws1
 assign [class="Alacritty"] $ws2
-# assign [class="VSCodium"] $ws3
+assign [class="VSCodium"] $ws3
+assign [class="jetbrains-pycharm-ce"] $ws3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -201,7 +202,7 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 set $term alacritty 
-set $alacConfig ~/.config/alacritty/alacritty-i3.yml
+# set $alacConfig ~/.config/alacritty/alacritty.toml
 
 # remove titles
 default_border pixel 1
@@ -209,11 +210,11 @@ default_floating_border pixel 1
 for_window [class="^.*"] border pixel 1
 
 # floating windows use xprop
-for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="Io.elementary.files"] floating enable
 for_window [class="qBittorrent"] floating enable
 for_window [class="Com.github.donadigo.eddy"] floating enable
 for_window [class="Tk"] floating enable
-for_window [class="Gnome-calendar"] floating enable
+for_window [class="Io.elementary.calendar"] floating enable
 for_window [class="Evolution-alarm-notify"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Blueman-manager"] floating enable
@@ -237,16 +238,16 @@ client.background       #F8F8F2
 # config for the i3 status bar
 
 bar {
-	font pango:Space Mono 10
+	font pango:Inter regular 10
 	position top
 	status_command  ~/Apps/bumblebee-status/bumblebee-status \
-		-m cmus spacer amixer spacer brightness spacer battery spacer calendar time spacer system \
-		-p time.format="%H:%M" cmus.format={file2} cmus.layout="cmus.prev cmus.next cmus.repeat cmus.main" calendar.format="%a,%b %d" spacer.text="|"\
+		-m cmus spacer amixer spacer brightness spacer battery spacer calendar time system \
+		-p time.format="%H:%M" cmus.format={file2} cmus.layout="cmus.prev cmus.next cmus.repeat cmus.main" calendar.format="%a,%b %d" spacer.text=" "\
         -t iceberg
 
 	colors {
 	# dracula theme
-		background #282A36
+		background #161821
 			statusline #F8F8F2
 			separator  #44475A
 
@@ -260,7 +261,7 @@ bar {
 
 # commands executed on startup
 exec_always --no-startup-id feh --bg-fill /home/subzero/Pictures/mywallpapers/Img-22.png 
-exec --no-startup-id xsetroot -cursor_name /path/to/.icons/Numix\ Dark
+# exec --no-startup-id xsetroot -cursor_name /path/to/.icons/Numix\ Dark
 exec --no-startup-id picom -b
 # doesnt work => exec --no-startup-id rfkill block bluetooth
 # external monitor setup : puts external monitor to the right
@@ -272,11 +273,12 @@ exec_always --no-startup-id xrandr --output HDMI-1 --rotate left
 
 # custom key bindings
 # dmenu with dracula theme
-bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Space Mono-12' -p '> ' -b"
-bindsym $mod+Return exec --no-startup-id $term --config-file $alacConfig
+bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Dank Mono-13' -p '> ' -b"
+bindsym $mod+Return exec --no-startup-id $term 
+# --config-file $alacConfig
 bindsym $mod+Shift+s exec --no-startup-id ~/.scripts/sleep.sh
 bindsym $mod+b exec --no-startup-id brave-browser --incognito
-bindsym $mod+n exec --no-startup-id nautilus 
+bindsym $mod+n exec --no-startup-id io.elementary.files 
 bindsym Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
 bindsym $mod+Print exec --no-startup-id flameshot gui
 # Scratchpads
@@ -286,12 +288,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # cmus sractchpad
-exec --no-startup-id $term --class mus --config-file $alacConfig -e cmus 
+exec --no-startup-id $term --class mus -e cmus 
 for_window [class="mus"] floating enable
 for_window [class="mus"] move scratchpad
 bindsym $mod+m [class="mus"] scratchpad show; [class="mus"] move position center
 # alacritty scratchpad
-exec --no-startup-id $term --class mux --config-file $alacConfig -e tmux
+exec --no-startup-id $term --class mux -e tmux
 for_window [class="mux"] floating enable
 for_window [class="mux"] move scratchpad
 bindsym $mod+t [class="mux"] scratchpad show; [class="mux"] move position center
