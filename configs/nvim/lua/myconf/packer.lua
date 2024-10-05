@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/vim-be-good'
     use 'tpope/vim-commentary'
     use 'mg979/vim-visual-multi'
+    -- oil
     -- use {
     --     'X3eRo0/dired.nvim',
     --     requires = 'MunifTanjim/nui.nvim',
@@ -117,5 +118,11 @@ return require('packer').startup(function(use)
             )
         end
     }
+    use 'mfussenegger/nvim-dap'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
+    use 'mfussenegger/nvim-dap-python'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'chentoast/marks.nvim'
 end)
 --  nvim-treesitter/treesitterplayground

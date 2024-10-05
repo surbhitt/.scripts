@@ -106,6 +106,9 @@ bindkey '^ [[Z' autosuggest-accept  # shift + tab  | autosuggest
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# export NODE_OPTIONS=--openssl-legacy-provider
+# export PYTHONPATH="/home/subzero/Desktop/work/bidfortune:$PYTHONPATH"
+
 alias vim='~/Apps/nvim.appimage'
 alias l='exa -l --icons --group-directories-first'
 alias ls='l --no-user --no-time '
@@ -113,7 +116,17 @@ alias lsa='ls -a'
 alias lsr='lsa -T -L=2'
 alias lst='exa -T'
 alias python='python3'
+alias acv='source .venv/bin/activate'
+alias indb='pgcli postgresql://postgres:%40bigharddisk1!@postgres-crawler.hawker.news/crawler' # writedb
+alias proddb='pgcli postgresql://postgres:%40bigharddisk1!@postgres-master.hawker.news/crawler' # readdb
+alias bfreaddb='pgcli postgresql://postgres:%40bigharddisk1!@us.postgres-read.hawker.news/crawler'
+alias qbt='~/Apps/qbt.appimage &'
+alias buds='18:95:52:78:67:37'
+# servers
+alias works_pp='ssh ubuntu@15.235.202.136'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f "/home/subzero/.ghcup/env" ] && . "/home/subzero/.ghcup/env" # ghcup-env

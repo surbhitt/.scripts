@@ -27,7 +27,15 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>f", function()
+    if vim.bo.filetype == 'python' then
+        vim.cmd('!black %')
+        vim.cmd('!isort %')
+        vim.cmd('edit')
+    else
+        vim.lsp.buf.format()
+    end
+end)
 
 vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y")
 -- dont know what it does vim.keymap.set("n", "<leader>Y", "\"+Y")

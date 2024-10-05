@@ -1,6 +1,7 @@
 require("myconf.remap")
 require("myconf.set")
 require("myconf.colors")
+require("myconf.marks")
 
 -- italics stuff to fix tmux issue
 vim.cmd [[
